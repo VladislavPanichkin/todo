@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  outline: none;
+  font-family: 'Roboto', -apple-system, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.todo {
+  &__sidebar {
+    background-color: #c8c7c7;
+    width: 20vw;
+    border-right: 1px solid #9f9e9e;
+    padding: 10% 5%;
+    font-size: 2vw;
+  }
+}
+
+.field {
+  border: none;
+  padding: 5%;
+  box-sizing: border-box;
+  border-radius: 2%;
+  box-shadow: 0px 1px 1px #555555;
+  border-radius: 2%;
+  box-sizing: border-box;
+  width: 100%;
+
+  &:focus {
+    box-shadow: 0px 1px 3px #414141;
+  }
+}
+
+.button {
+  background: #ff7de0;
+  color: #fff;
+  border: 0;
+  border-radius: 2%;
+  padding: 5% 10%;
+  transition: 0.1s;
+  cursor: pointer;
+
+  &:hover {
+    background: darken(#ff7de0, 5%);
+  }
+
+  &:active {
+    background: darken(#ff7de0, 7%);
+  }
+}

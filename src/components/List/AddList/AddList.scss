@@ -1,0 +1,39 @@
+.add-list {
+    &-window {
+        background: white;
+        width: 30vw;
+        height: 21vw;
+        border-radius: 2%;
+        box-shadow: 0px 1px 5px #555555;
+        padding: 5%;
+        
+        &-colors {
+            margin-top: 3%;
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+
+            .badge {
+                width: 3vw;
+                height: 3vw;
+                border: 2px solid transparent;
+
+                &.active {
+                    border: 2px solid #9f9e9e;
+                }
+            }
+        }
+
+        &__close-btn {
+            width: 2vw;
+            cursor: pointer;
+            float: right;
+            margin-bottom: 1%;
+        }
+    }
+}
+
+.button {
+    width: 100%;
+    margin-top: 3%;
+}
