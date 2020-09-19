@@ -8,13 +8,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+h3 {
+  opacity: 0.3;
+  font-size: 3em;
+}
+
 .todo {
-  &__sidebar {
+
+  display: flex;
+
+  &-sidebar {
     background-color: #c8c7c7;
-    width: 20vw;
+    width: 30%;
     border-right: 1px solid #9f9e9e;
-    padding: 10% 5%;
+    padding: 10% 3%;
     font-size: 2vw;
+    min-height: 100vh;
+  }
+
+  &-tasks {
+    flex: 1;
+    padding: 2vw 4vw;
   }
 }
 
