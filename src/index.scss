@@ -16,19 +16,21 @@ h3 {
 .todo {
 
   display: flex;
+  max-height: 100vh;
 
   &-sidebar {
     background-color: #c8c7c7;
     width: 30%;
     border-right: 1px solid #9f9e9e;
-    padding: 10% 3%;
+    padding: 3%;
     font-size: 2vw;
-    min-height: 100vh;
+    max-height: 100vh;
   }
 
   &-tasks {
     flex: 1;
     padding: 2vw 4vw;
+    overflow: auto;
   }
 }
 
@@ -55,9 +57,14 @@ h3 {
   padding: 5% 10%;
   transition: 0.1s;
   cursor: pointer;
+  width: 30vw;
 
   &:hover {
     background: darken(#ff7de0, 5%);
+  }
+
+  &:disabled {
+    background: #b1b1b1;
   }
 
   &:active {

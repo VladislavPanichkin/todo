@@ -7,6 +7,7 @@ import './AddList.scss';
 import closeSvg from '../../assets/close.svg';
 
 const AddList = ({ colors, onAdd }) => {
+    
     const [visibleWindow, setVisibleWindow] = React.useState(false);
     const [selectedColor, selectColor] = React.useState(1);
     const [inputValue, setInputValue] = React.useState('');
@@ -38,6 +39,7 @@ const AddList = ({ colors, onAdd }) => {
                 onAdd(listObj);
                 onCLose();
             })
+            .catch(() => alert('Ошибка!'))
             .finally(() => {
                 setIsLoading(false);
             }

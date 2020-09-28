@@ -92,6 +92,7 @@ h2 {
             align-items: center;
             opacity: 0.3;
             transition: 0.1s;
+            margin-bottom: 5%;
 
             span {
                 margin-left: 2vw;
@@ -104,6 +105,10 @@ h2 {
 
         img {
             width: 3vw;
+        }
+
+        &__close-btn {
+            margin-left: 2vw;
         }
     }
 }
