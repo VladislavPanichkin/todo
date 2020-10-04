@@ -23,9 +23,10 @@ const List = ({ items, isRemovable, onClick, onDelete, onClickItem, activeItem }
     return (
         <ul onClick={onClick} className="list">
             {items.map((item, index) => (
-                <NavLink to={`/lists/:${activeItem && activeItem.id}`}>
-                <li
+                <NavLink 
                     key={index}
+                    to={item.id ? `/lists/${item.id}` : '/'}>
+                <li
                     className={classNames(item.className, {
                         active: item.active ? item.active : activeItem && activeItem.id === item.id
                     })}
@@ -44,7 +45,9 @@ const List = ({ items, isRemovable, onClick, onDelete, onClickItem, activeItem }
                     )}
                 </li>
                 </NavLink>
-            ))}
+            )
+            )
+        }
         </ul>
     );
 };

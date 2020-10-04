@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 import AddTaskBlock from './AddTaskBlock';
 import Task from './Task';
 
 import './Tasks.scss';
 
-const Tasks = ({ item, onAddTask, isEmpty }) => {
+const Tasks = ({ item, onAddTask, onDeleteTask, isEmpty }) => {
 
     return (
         <div className="tasks">
-            <h2 className="tasks__title">{item.name}</h2>
+            <h2 className="tasks__title" style={{color: item.color.hex}}>{item.name}</h2>
             <div className="tasks-items">
                 {!isEmpty && item.tasks && !item.tasks.length && (
                     <h3>Задач нет</h3>
@@ -17,6 +17,9 @@ const Tasks = ({ item, onAddTask, isEmpty }) => {
                     <Task 
                         key={task.id}
                         task={task}
+                        item={item}
+                        onDeleteTask={onDeleteTask}
+                        {...task}
                     />
                 ))}
             </div>

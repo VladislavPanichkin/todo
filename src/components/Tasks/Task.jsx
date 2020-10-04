@@ -1,6 +1,8 @@
 import React from 'react'
+import deleteSvg from '../../assets/close.svg';
 
-const Task = ({ task }) => {
+const Task = ({ id, item, task, onDeleteTask }) => {
+
     return (
         <div key={task.id} className="tasks-items-row">
             <div
@@ -20,6 +22,12 @@ const Task = ({ task }) => {
                 </label>
             </div>
             <input readOnly value={task.text} />
+            <img
+                src={deleteSvg}
+                alt="delete icon"
+                className="task__delete-icon"
+                onClick={() => onDeleteTask(item.id, id)}
+            />
         </div>
     )
 }

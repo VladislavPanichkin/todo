@@ -1,12 +1,4 @@
-@keyframes addbutton {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(90deg);
-  }
-}
+@import '../../_rotate-button';
 
 .list {
 
@@ -62,7 +54,6 @@
       margin-right: 10%;
       display: inline-flex;
       width: 2.5vw;
-      opacity: 0.5;
     }
 
     &__add-button {
@@ -72,8 +63,7 @@
         opacity: 1;
 
         i {
-          animation-name: addbutton;
-          animation-duration: 0.7s;
+          @include rotate-button();
          }
         }
       }

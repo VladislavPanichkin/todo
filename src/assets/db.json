@@ -16,32 +16,9 @@
       "name": "Кино",
       "colorId": 3,
       "completed": false
-    },
-    {
-      "name": "a",
-      "colorId": 3,
-      "id": 4
     }
   ],
   "tasks": [
-    {
-      "id": 1,
-      "itemId": 2,
-      "text": "Выучить React",
-      "completed": false
-    },
-    {
-      "id": 2,
-      "itemId": 2,
-      "text": "Изучить React Native",
-      "completed": false
-    },
-    {
-      "id": 3,
-      "itemId": 3,
-      "text": "Назад в будущее",
-      "completed": false
-    },
     {
       "text": "a",
       "completed": false,
@@ -58,38 +35,8 @@
       "id": 6
     },
     {
-      "itemId": 3,
-      "text": "asf",
-      "completed": false,
-      "id": 7
-    },
-    {
-      "itemId": 2,
-      "text": "aaa",
-      "completed": false,
-      "id": 8
-    },
-    {
-      "itemId": 1,
-      "text": "asfas",
-      "completed": false,
-      "id": 9
-    },
-    {
       "completed": true,
       "id": 10
-    },
-    {
-      "itemId": 3,
-      "text": "aaaaaa",
-      "completed": false,
-      "id": 11
-    },
-    {
-      "itemId": 2,
-      "text": "as",
-      "completed": false,
-      "id": 12
     }
   ],
   "colors": [

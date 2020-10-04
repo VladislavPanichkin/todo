@@ -1,0 +1,14 @@
+@keyframes rotateButton {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(90deg);
+    }
+  }
+
+@mixin rotate-button {
+    animation-name: rotateButton;
+    animation-duration: 0.7s;
+}
