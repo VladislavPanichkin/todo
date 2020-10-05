@@ -3,8 +3,7 @@
     {
       "id": 1,
       "name": "Купить",
-      "colorId": 1,
-      "completed": false
+      "colorId": 1
     },
     {
       "id": 2,
@@ -14,8 +13,7 @@
     {
       "id": 3,
       "name": "Кино",
-      "colorId": 3,
-      "completed": false
+      "colorId": 3
     }
   ],
   "tasks": [
@@ -37,6 +35,42 @@
     {
       "completed": true,
       "id": 10
+    },
+    {
+      "itemId": 1,
+      "text": "Хлеб",
+      "completed": false,
+      "id": 11
+    },
+    {
+      "itemId": 1,
+      "text": "Яйца",
+      "completed": false,
+      "id": 12
+    },
+    {
+      "itemId": 1,
+      "text": "Молоко",
+      "completed": false,
+      "id": 13
+    },
+    {
+      "itemId": 2,
+      "text": "React",
+      "completed": false,
+      "id": 14
+    },
+    {
+      "itemId": 2,
+      "text": "Redux",
+      "completed": true,
+      "id": 15
+    },
+    {
+      "itemId": 2,
+      "text": "Node.js",
+      "completed": false,
+      "id": 16
     }
   ],
   "colors": [

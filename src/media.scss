@@ -1,0 +1,20 @@
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .todo {
+
+        height: 100vh;
+
+        &-sidebar {
+            width: 20vw;
+
+            &:active {
+                width: 80vw;
+            }
+        }
+
+        .list a li {
+            span, img {
+                display: none;
+            }
+        }
+    }
+}

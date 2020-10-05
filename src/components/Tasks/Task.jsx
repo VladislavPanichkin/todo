@@ -1,7 +1,13 @@
 import React from 'react'
+import Axios from 'axios';
+
 import deleteSvg from '../../assets/close.svg';
 
-const Task = ({ id, item, task, onDeleteTask }) => {
+const Task = ({ id, item, task, completed, onDeleteTask, toggleCheckbox }) => {
+
+    const onToggleCheckbox = e => {
+        toggleCheckbox(item.id, id, e.target.checked);
+    }
 
     return (
         <div key={task.id} className="tasks-items-row">
@@ -11,6 +17,8 @@ const Task = ({ id, item, task, onDeleteTask }) => {
                 <input
                     id={`task-${task.id}`}
                     type="checkbox"
+                    checked={task.completed}
+                    onClick={onToggleCheckbox}
                 />
                 <label htmlFor={`task-${task.id}`}>
                     <svg width="2vw"

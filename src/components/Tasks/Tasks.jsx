@@ -4,7 +4,7 @@ import Task from './Task';
 
 import './Tasks.scss';
 
-const Tasks = ({ item, onAddTask, onDeleteTask, isEmpty }) => {
+const Tasks = ({ item, onAddTask, onDeleteTask, isEmpty, toggleCheckbox }) => {
 
     return (
         <div className="tasks">
@@ -19,6 +19,7 @@ const Tasks = ({ item, onAddTask, onDeleteTask, isEmpty }) => {
                         task={task}
                         item={item}
                         onDeleteTask={onDeleteTask}
+                        toggleCheckbox={toggleCheckbox}
                         {...task}
                     />
                 ))}
