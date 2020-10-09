@@ -63,7 +63,7 @@
     {
       "itemId": 2,
       "text": "Redux",
-      "completed": true,
+      "completed": false,
       "id": 15
     },
     {

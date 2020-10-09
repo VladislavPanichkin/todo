@@ -2,6 +2,7 @@ import React from 'react';
 import { List, Tasks, AddList } from './components';
 import axios from 'axios';
 import { Route } from 'react-router-dom';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 function App() {
   const [items, setItems] = React.useState(null);
@@ -68,6 +69,36 @@ function App() {
       .patch('http://localhost:3001/tasks/' + taskId, { completed });
   }
 
+  const onDragEnd = (result) => {
+    console.log(result)
+    if (!result.destination) {
+      return;
+    }
+    const newItems = items.map(item => {
+      if (item.tasks.id == result.droppableId) {
+        item.tasks.map(task => {
+          if (task.id == result.source.index) {
+            let prevInd = result.source.index;
+            let aimObj = item.tasks.splice(item.tasks.indexOf(task), 1);
+            aimObj.id = result.destination.index;
+            item.tasks.map(task => {
+              if (task.id == result.destination.index) {
+                task.id = prevInd
+              }
+               else {
+                 return task;
+               }
+              item.tasks.splice(item.tasks.indexOf(task), 0, aimObj);
+            })
+          }
+          return task;
+        })
+      }
+      return item;
+    })
+   setItems(newItems);
+  }
+
   return (
     <div className="todo">
       <div className="todo-sidebar">
@@ -101,28 +132,30 @@ function App() {
           )}
         <AddList onAdd={onAddItems} colors={colors} />
       </div>
-      <div className="todo-tasks">
-        <Route exact path="/">
-          {items && items.map(item => (
-            <Tasks
-              key={item.id}
-              item={item}
-              onAddTask={onAddTask}
-              onDeleteTask={onDeleteTask}
-              isEmpty
-            />
-          ))}
-        </Route>
-        <Route path="/lists/:id">
-          {items && activeItem &&
-            <Tasks
-              item={activeItem}
-              onAddTask={onAddTask}
-              onDeleteTask={onDeleteTask}
-              toggleCheckbox={toggleCheckbox}
-            />}
-        </Route>
-      </div>
+      <DragDropContext onDragEnd={onDragEnd} >
+        <div className="todo-tasks">
+          <Route exact path="/">
+            {items && items.map(item => (
+              <Tasks
+                key={item.id}
+                item={item}
+                onAddTask={onAddTask}
+                onDeleteTask={onDeleteTask}
+                isEmpty
+              />
+            ))}
+          </Route>
+          <Route path="/lists/:id">
+            {items && activeItem &&
+              <Tasks
+                item={activeItem}
+                onAddTask={onAddTask}
+                onDeleteTask={onDeleteTask}
+                toggleCheckbox={toggleCheckbox}
+              />}
+          </Route>
+        </div>
+      </DragDropContext>
     </div>
   );
 }
