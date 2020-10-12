@@ -2,12 +2,13 @@ import React from 'react';
 import { List, Tasks, AddList } from './components';
 import axios from 'axios';
 import { Route } from 'react-router-dom';
-import { DragDropContext } from 'react-beautiful-dnd';
+import classNames from 'classnames';
 
 function App() {
   const [items, setItems] = React.useState(null);
   const [colors, setColors] = React.useState(null);
   const [activeItem, setActiveItem] = React.useState(null);
+  const [activeSidebar, setActiveSidebar] = React.useState(false);
 
   React.useEffect(() => {
     axios
@@ -69,39 +70,23 @@ function App() {
       .patch('http://localhost:3001/tasks/' + taskId, { completed });
   }
 
-  const onDragEnd = (result) => {
-    console.log(result)
-    if (!result.destination) {
+  const toggleActiveSidebar = () => {  
+    setActiveSidebar(!activeSidebar);
+  }
+
+  const activateSidebar = () => {
+    if (activeSidebar) {
       return;
     }
-    const newItems = items.map(item => {
-      if (item.tasks.id == result.droppableId) {
-        item.tasks.map(task => {
-          if (task.id == result.source.index) {
-            let prevInd = result.source.index;
-            let aimObj = item.tasks.splice(item.tasks.indexOf(task), 1);
-            aimObj.id = result.destination.index;
-            item.tasks.map(task => {
-              if (task.id == result.destination.index) {
-                task.id = prevInd
-              }
-               else {
-                 return task;
-               }
-              item.tasks.splice(item.tasks.indexOf(task), 0, aimObj);
-            })
-          }
-          return task;
-        })
-      }
-      return item;
-    })
-   setItems(newItems);
+      setActiveSidebar(true);
   }
 
   return (
     <div className="todo">
-      <div className="todo-sidebar">
+      <div 
+        className={classNames("todo-sidebar", window.innerWidth < 400 && !!activeSidebar && "todo-sidebar_active")}
+        onClick={activateSidebar}
+        >
         <List
           items={[
             {
@@ -111,8 +96,10 @@ function App() {
             }]
           }
           onClickItem={(item) => {
-            setActiveItem(item);
-          }}
+              setActiveItem(item);
+              toggleActiveSidebar()
+          }
+          }
           activeItem={activeItem} />
         {items ?
           (<List
@@ -124,6 +111,7 @@ function App() {
             }}
             onClickItem={(item) => {
               setActiveItem(item);
+              toggleActiveSidebar();
             }}
             activeItem={activeItem}
           />
@@ -132,7 +120,6 @@ function App() {
           )}
         <AddList onAdd={onAddItems} colors={colors} />
       </div>
-      <DragDropContext onDragEnd={onDragEnd} >
         <div className="todo-tasks">
           <Route exact path="/">
             {items && items.map(item => (
@@ -155,7 +142,6 @@ function App() {
               />}
           </Route>
         </div>
-      </DragDropContext>
     </div>
   );
 }

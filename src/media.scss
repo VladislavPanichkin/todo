@@ -1,20 +1,99 @@
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+    svg {
+        width: 8vw;
+        :not(.fa-w-16) {
+            margin-bottom: 2vh;
+        }
+    }
+
     .todo {
 
         height: 100vh;
 
         &-sidebar {
             width: 20vw;
+            display: flex;
+            flex-direction: column;
+        }
 
-            &:active {
-                width: 80vw;
+        .list {
+
+            li {
+                &.active {
+                    box-shadow: none;
+                }
+            }
+
+            & > i {
+                width: auto!important;
+            }
+
+            a li {
+
+                margin-bottom: 2vh;
+
+                span, img {
+                    display: none;
+                }
             }
         }
 
-        .list a li {
-            span, img {
-                display: none;
+        &-sidebar_active {
+            width: 100vw;
+            font-size: 4vw;
+            font-weight: 500;
+
+            .list {
+
+            a > li {
+                span, img {
+                    display: inline-block;
+                }
+            }
+
+            &__delete-icon {
+                width: 4vw;
             }
         }
+        }
+
+        .badge {
+            width: 12vw;
+            height: 12vw;
+        }
+    }
+
+    .add-list-window {
+        height: auto!important;
+        width: 68vw!important;
+
+        i {
+            width: 6vw!important;
+            height: 6vw!important;
+        }
+
+        button {
+            width: 100%;
+        }
+    }
+
+    .tasks {
+        &-items-row {
+            input {
+                font-size: 2rem;
+            }
+
+            label {
+                width: 35px!important;
+                height: 35px!important;
+            }
+         }
+        
+         &-form-block {
+             &__close-btn {
+
+             }
+         }
     }
 }

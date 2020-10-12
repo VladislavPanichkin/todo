@@ -53,7 +53,6 @@
     i {
       margin-right: 10%;
       display: inline-flex;
-      width: 2.5vw;
     }
 
     &__add-button {
@@ -62,7 +61,7 @@
       &:hover {
         opacity: 1;
 
-        i {
+        i { 
           @include rotate-button();
          }
         }

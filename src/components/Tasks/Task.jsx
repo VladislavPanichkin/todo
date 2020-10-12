@@ -1,5 +1,4 @@
 import React from 'react';
-import { Draggable } from 'react-beautiful-dnd';
 
 import deleteSvg from '../../assets/close.svg';
 
@@ -10,19 +9,9 @@ const Task = ({ id, item, task, onDeleteTask, toggleCheckbox }) => {
     }
 
     return (
-        <Draggable 
-            draggableId={`${task.id}`} 
-            id={task.id}
-            index={task.id}
-            itemId={item.id}
-        >
-            {(provided) => (
                 <div
                     key={task.id}
                     className="tasks-items-row"
-                    ref={provided.innerRef}
-                    {...provided.draggableProps}
-                    {...provided.dragHandleProps}
                 >
                     <div
                         className="checkbox"
@@ -51,9 +40,6 @@ const Task = ({ id, item, task, onDeleteTask, toggleCheckbox }) => {
                     />
                 </div>
             )
-            }
-        </Draggable >
-    )
 }
 
 export default Task

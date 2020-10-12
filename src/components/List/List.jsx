@@ -23,31 +23,31 @@ const List = ({ items, isRemovable, onClick, onDelete, onClickItem, activeItem }
     return (
         <ul onClick={onClick} className="list">
             {items.map((item, index) => (
-                <NavLink 
+                <NavLink
                     key={index}
                     to={item.id ? `/lists/${item.id}` : '/'}>
-                <li
-                    className={classNames(item.className, {
-                        active: item.active ? item.active : activeItem && activeItem.id === item.id
-                    })}
-                    onClick={onClickItem ? () => onClickItem(item) : null}
-                >
-                    <i>{item.icon ? item.icon : <Badge color={item.color.name} />}</i>
-                    <span>{item.name}</span>
-                    <span className="tasks__count">{item.tasks && item.tasks.length > 0 && `(${item.tasks.length})`}</span>
-                    {isRemovable && (
-                        <img
-                            src={deleteSvg}
-                            alt="delete icon"
-                            className="list__delete-icon"
-                            onClick={() => deleteList(item)}
-                        />
-                    )}
-                </li>
+                    <li
+                        className={classNames(item.className, {
+                            active: item.active ? item.active : activeItem && activeItem.id === item.id
+                        })}
+                        onClick={onClickItem ? () => onClickItem(item) : null}
+                    >
+                        <i>{item.icon ? item.icon : <Badge color={item.color.name} />}</i>
+                        <span>{item.name}</span>
+                        <span className="tasks__count">{item.tasks && item.tasks.length > 0 && `(${item.tasks.length})`}</span>
+                        {isRemovable && (
+                            <img
+                                src={deleteSvg}
+                                alt="delete icon"
+                                className="list__delete-icon"
+                                onClick={() => deleteList(item)}
+                            />
+                        )}
+                    </li>
                 </NavLink>
             )
             )
-        }
+            }
         </ul>
     );
 };
